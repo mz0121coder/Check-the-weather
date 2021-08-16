@@ -77,3 +77,30 @@ function dateConvert(dt) {
   return dateTest.toLocaleDateString();
 }
 
+// Change units to celsius
+function kelvinToCelsius(kelvinUnitsValue) {
+  return Math.round(kelvinUnitsValue - 273.15);
+}
+
+// Current weather values
+function todayDisplay(
+  mainCityEnterred,
+  todayDate,
+  weatherSymbol,
+  tempValueCelsius,
+  humidValuePercent,
+  speedOfWind,
+  todayUvReading
+) {
+  $("#searchedName").text(mainCityEnterred);
+  $("#todayDate").text(todayDate);
+  $("#weatherSymbol").attr(
+    "src",
+    "http://openweathermap.org/img/wn/" + weatherSymbol + "@2x.png"
+  );
+  $("#tempValueCelsius").text(tempValueCelsius + "°C");
+  $("#humidValuePercent").text(humidValuePercent + "%");
+  $("#speedOfWind").text(speedOfWind + " metres/sec");
+  $("#todayUvReading").text(todayUvReading);
+}
+
