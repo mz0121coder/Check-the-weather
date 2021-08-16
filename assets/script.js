@@ -173,4 +173,35 @@ function trackSearch (){
     console.log(lat);
     console.log(lon);
 
-    
+    var openW = useWeatherApi(lat, lon);
+    // Display data from responses
+    $.ajax({
+      url: openW,
+      method: "GET",
+    }).then(function (response) {
+      console.log(response);
+      var dt = response.current.dt;
+      var todayDate = dateConvert(dt);
+      var weatherSymbol = response.current.weather[0].icon;
+      console.log(weatherSymbol);
+      var kelvinUnitsValue = response.current.temp;
+      console.log(kelvinUnitsValue);
+      var tempValueCelsius = kelvinToCelsius(kelvinUnitsValue.toString());
+      var humidValuePercent = response.current.humidity;
+      var speedOfWind = Math.round(response.current.wind_speed);
+      var todayUvReading = Math.round(response.current.uvi);
+      
+      todayDisplay(
+        titleCaseInput(mainCityEnterred),
+        todayDate,
+        weatherSymbol,
+        tempValueCelsius,
+        humidValuePercent,
+        speedOfWind,
+        todayUvReading
+      
+      );
+         
+      $("#cityName").val("");
+
+      displayFiveDay(response);  
