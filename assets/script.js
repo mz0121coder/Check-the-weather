@@ -48,3 +48,19 @@ function logSearch() {
   citySearch();
   }
 }
+
+// Show previous search list
+function citySearch() {
+  var $listOfSearchedCities = $("ul#list-of-searches");
+  $listOfSearchedCities.empty();
+  var getCityEnterred = !!localStorage.getItem("city-entered") ?
+    JSON.parse(localStorage.getItem("city-entered")) : [];
+  console.log(getCityEnterred);
+  for (i = 0; i < getCityEnterred.length; i++) {
+    var recentCity = $("<li>");
+    recentCity.text(getCityEnterred[i]);
+    recentCity.attr("");  
+    $listOfSearchedCities.prepend(recentCity);
+  }
+
+  
