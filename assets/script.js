@@ -14,11 +14,12 @@ function getGridValue() {
 // Retrieve data to be displayed
 function useWeatherApi(latValue, lonValue) {
   var openW = "https://api.openweathermap.org/data/2.5/onecall?";
-  var getResponse = {
+  var getResponseFromApi = {
     lat: latValue,
     lon: lonValue,
     appid: "35463baba77cb93af45f2339eaedb98d",
   };
-  console.log(openW + $.param(getResponse));
-  return openW + $.param(getResponse);
+  console.log(openW + $.param(getResponseFromApi));
+  return openW + $.param(getResponseFromApi);
 }
+
