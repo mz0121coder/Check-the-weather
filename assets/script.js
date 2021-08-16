@@ -104,3 +104,40 @@ function todayDisplay(
   $("#todayUvReading").text(todayUvReading);
 }
 
+// Five day values
+function displayFiveDay(response) {
+  var $outlookFiveDay = $("#outlookFiveDay");
+  for (i = 1; i < 6; i++) {
+    var dashboard = $("<div>");
+    dashboard.attr("class", "card");
+    $outlookFiveDay.append(dashboard);
+    var dashboardMain = $("<div>");
+    dashboardMain.attr("class", "card-body fiveDayValues",);
+    dashboard.append(dashboardMain);
+
+    console.log(response.daily[i].temp.day);
+    var fiveDayDateValue = dateConvert(response.daily[i].dt);
+    var h5 = $("<h5>");
+    h5.text(fiveDayDateValue);
+    dashboardMain.append(h5);
+
+    console.log(response.daily[i].weather[0].icon);
+    var futureWeatherSymbol = response.daily[i].weather[0].icon;
+    var smallImg = $("<img>");
+    smallImg.attr(
+      "src",
+      "http://openweathermap.org/img/wn/" + futureWeatherSymbol + "@2x.png"
+    );
+    dashboardMain.append(smallImg);
+
+    var fiveDayOutlook = kelvinToCelsius(response.daily[i].temp.day);
+    var valueTempSpacing = $("<div>");
+    valueTempSpacing.text(fiveDayOutlook + "°C");
+    dashboardMain.append(valueTempSpacing);
+
+    var humidPredict = response.daily[i].humidity;
+    var spacingHumid = $("<div>");
+    spacingHumid.text("Humidity: " + humidPredict + "%");
+    dashboardMain.append(spacingHumid);
+  }
+}
