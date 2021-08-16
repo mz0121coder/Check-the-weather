@@ -158,3 +158,19 @@ function trackSearch (){
   $("#outlookFiveDay").empty(), 
   //runs local storage function
   logSearch();
+
+  var getGrid = getGridValue();
+  // Get coord values for city
+  $.ajax({
+    url: getGrid,
+    method: "GET",
+
+    // Use response values for next call
+  }).done(function (response) {
+    console.log(response);
+    var lat = response.coord.lat;
+    var lon = response.coord.lon;
+    console.log(lat);
+    console.log(lon);
+
+    
