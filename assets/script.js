@@ -63,4 +63,17 @@ function citySearch() {
     $listOfSearchedCities.prepend(recentCity);
   }
 
-  
+  // On click response for list
+  $("li").on("click", function(){
+    console.log($(this).text());
+    mainCityEnterred = ($(this).text());  
+    trackSearch();
+    });
+}
+
+// Date conversion from response
+function dateConvert(dt) {
+  var dateTest = new Date(dt * 1000);
+  return dateTest.toLocaleDateString();
+}
+
