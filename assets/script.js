@@ -227,3 +227,17 @@ function trackSearch (){
     });
   });
 }
+
+// Call functions, stop defaults on click
+$(window).ready(function() {
+  mainCityEnterred = JSON.parse(localStorage.getItem("city-entered"))[0];
+  
+ trackSearch();
+ });
+ 
+ citySearch();
+ $("#searchBtn").click(function (event) {
+   
+   event.preventDefault();
+   mainCityEnterred= $("#cityName").val();
+   trackSearch();})
