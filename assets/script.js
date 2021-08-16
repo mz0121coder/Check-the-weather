@@ -23,3 +23,28 @@ function useWeatherApi(latValue, lonValue) {
   return openW + $.param(getResponseFromApi);
 }
 
+// Use title case for searches
+function titleCaseInput(str) {
+  return str.replace(
+    /\w\S*/g,
+    function(txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    }
+  );
+}
+
+// Log searches with local storage
+function logSearch() {
+  var loggedValue = titleCaseInput($("#cityName").val());
+  console.log(loggedValue + "storage");
+  var getCityEnterred = !!localStorage.getItem("city-entered") ?
+    JSON.parse(localStorage.getItem("city-entered")) : [];
+// Test if city was searched with boolean 
+  var cityTest = getCityEnterred.includes(loggedValue);
+  console.log(cityTest + "Boolean test");
+  if (cityTest == false){
+  getCityEnterred.push(loggedValue);
+  localStorage.setItem("city-entered", JSON.stringify(getCityEnterred));
+  citySearch();
+  }
+}
