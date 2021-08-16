@@ -141,3 +141,20 @@ function displayFiveDay(response) {
     dashboardMain.append(spacingHumid);
   }
 }
+
+// Search button
+$(document).ready(function() {
+  $("#cityName").keyup(function(event) {
+    if (event.which === 13) {
+      $("#searchBtn").click();
+    }
+  })
+});
+
+
+function trackSearch (){
+  
+  // Clear forecast
+  $("#outlookFiveDay").empty(), 
+  //runs local storage function
+  logSearch();
