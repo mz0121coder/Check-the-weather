@@ -204,4 +204,26 @@ function trackSearch (){
          
       $("#cityName").val("");
 
-      displayFiveDay(response);  
+      displayFiveDay(response); 
+      
+      // Colour coded UV readings
+      $("#todayUvReading").removeClass();
+      if (todayUvReading <= 2) {
+        $("#todayUvReading").addClass('low');
+        console.log("low" + todayUvReading);
+      } else if (todayUvReading < 5) {
+        $("#todayUvReading").addClass('medium');
+        console.log("medium" + todayUvReading);
+      } else if (todayUvReading < 7) {
+        $("#todayUvReading").addClass('high');
+        console.log("high" + todayUvReading);
+      } else if (todayUvReading < 10) {
+        $("#todayUvReading").addClass('veryhigh');
+        console.log("very high" + todayUvReading);
+      } else {
+        $("#todayUvReading").addClass('extreme');
+        console.log("extreme" + todayUvReading);
+      }
+    });
+  });
+}
