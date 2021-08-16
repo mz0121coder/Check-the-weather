@@ -1,0 +1,71 @@
+body {
+    background-color: aqua;
+}
+
+#list-of-searches {
+    list-style-type: none;
+    background-color: white;
+}
+
+#searchedName,
+#weatherSymbol,
+#todayDate,
+#humidValuePercent,
+#speedOfWind,
+#todayUvReading {
+    display: inline;
+}
+
+#todayDate{
+    font-size: large;
+}
+
+label{
+    font-weight: bold;
+}
+
+.low{
+background-color: lightgreen;
+padding: 5px;
+}
+.medium{
+    background-color: yellow;
+    padding: 5px;
+   
+}
+.high{
+    background-color: orange;
+    padding: 5px;
+    
+}
+.higher{
+    background-color: red;
+    padding: 5px;
+    
+}
+.extreme{
+    background-color: darkslateblue;
+    padding: 5px;
+    
+}
+
+.fiveDayValues{
+    background-color: darkblue;
+    color: white;
+}
+
+h1{
+    background-color: darkslategrey;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+
+li{
+    align-content: left;
+    border-style: solid;
+    border-width: 1px;
+    border-color: darkslateblue;
+    border-radius: 5px;  
+}
