@@ -37,8 +37,8 @@ function titleCaseInput(str) {
 function logSearch() {
   var loggedValue = titleCaseInput($("#cityName").val());
   console.log(loggedValue + "storage");
-  var getCityEnterred = !!localStorage.getItem("city-entered") ?
-    JSON.parse(localStorage.getItem("city-entered")) : [];
+  var getCityEnterred = localStorage.getItem("city-entered")?
+    JSON.parse(localStorage.getItem("city-entered")):[];
 // Test if city was searched with boolean 
   var cityTest = getCityEnterred.includes(loggedValue);
   console.log(cityTest + "Boolean test");
@@ -53,8 +53,8 @@ function logSearch() {
 function citySearch() {
   var $listOfSearchedCities = $("ul#list-of-searches");
   $listOfSearchedCities.empty();
-  var getCityEnterred = !!localStorage.getItem("city-entered") ?
-    JSON.parse(localStorage.getItem("city-entered")) : [];
+  var getCityEnterred = localStorage.getItem("city-entered")?
+    JSON.parse(localStorage.getItem("city-entered")):[];
   console.log(getCityEnterred);
   for (i = 0; i < getCityEnterred.length; i++) {
     var recentCity = $("<li>");
@@ -229,7 +229,7 @@ function trackSearch (){
 }
 
 // Call functions, stop defaults on click
-$(window).ready(function() {
+$(document).ready(function() {
   mainCityEnterred = JSON.parse(localStorage.getItem("city-entered"))[0];
   
  trackSearch();
